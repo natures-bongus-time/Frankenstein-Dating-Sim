@@ -207,6 +207,13 @@ label four:
             f "Glad to hear it!"
             jump six
 
+label five: 
+    show elizabeth_blushing
+    e "I... thank you."
+    e "I'm glad you're here too."
+    jump four
+
+
 label six:
 
     h "OHMYGODWE'REHERETHEJELLYFISHARESOCOOL!!!!!"
@@ -224,7 +231,7 @@ label six:
             h "adsfsfsdfsdfsdfssfdsfsdfsdfdf"
             e "*laughs* ___, stop teasing him!"
             if vpoints >= 0:
-                g "But elizabeth, It's so entertaining when they do that!"
+                g "But Elizabeth, It's so entertaining when they do that!"
             else:
                 g "Yeah, ____, Stop it!"
             jump seven
@@ -252,16 +259,21 @@ label seven:
 
     
 label elizabeth_route: 
-    "1"
+    e"1"
+    return
 
 label other_victor_route:
     "2"
+    return
 
 label henry_route:
     "3"
+    return
 
 label robert_route:
     "4"
+    return
 
 label no_route:
     "5"
+    return
