@@ -27,7 +27,7 @@ define g = Character("vIcToR fRaNkEnStEiN")
 
 define h = Character("HENRY CLERVALLLLL!!!!")
 
-define i = Character("The Creature???") 
+define i = Character("The Creature") 
 
 define j = Character("Robert's sister")
 
@@ -231,7 +231,7 @@ label six:
             h "adsfsfsdfsdfsdfssfdsfsdfsdfdf"
             e "*laughs* ___, stop teasing him!"
             if vpoints >= 0:
-                g "But Elizabeth, It's so entertaining when they do that!"
+                g "But Elsizabeth, It's so entertaining when they do that!"
             else:
                 g "Yeah, ____, Stop it!"
             jump seven
@@ -259,7 +259,26 @@ label seven:
 
     
 label elizabeth_route: 
-    e"1"
+    e "Wow. look at this! I think it's so beautiful that even Henry is speechless. and..."
+    e "*inhales nervously* You... you know what else is beautiful?"
+    e "You. You're beautiful, ___."
+    if vpoints >= 0:
+        e "And you're so kind."
+    e "and thoughtful."
+    e "Do you, I don't know, want to do something together? Like a date?"
+    e "My only experience with dating would have been my marriage to Victor..."
+    e "But everything about him is a red flag."
+    e "He's so obsessive, and he was a terrible dad to The Creature."
+    
+    #The creature wanders by and overhears
+
+    i "That's tue, he just abandoned me in his lab after obsessing over me for years."
+    i "Once he starts something he never stops." 
+
+    e "Uh... Thanks for that I guess?"
+
+    #the creature leaves.
+    
     return
 
 label other_victor_route:
