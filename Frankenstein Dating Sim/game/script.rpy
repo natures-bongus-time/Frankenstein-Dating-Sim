@@ -5,6 +5,15 @@
 init:
     $ vpoints = 0
 
+#points sysetem:
+    #if vpoints < 0:
+        #e "1"
+    #elif vpoints > 0:
+        #e "2"
+   #else:
+       #e "3"
+        
+    
 define e = Character("Elizabeth")
 
 define f = Character("Robert Waldon <3")
@@ -21,11 +30,15 @@ define k = Character("Mary Shelley????")
 
 define l = Character("PeRcY sHeLlY...")
 
-define m = Character("Rober and Henry simultaneously")
+define m = Character("Robert and Henry simultaneously")
+
+define n = Character("You")
+
+define o = Character("Kate")
 
 
 #I'm just going to write the actual thing in comments
-#setting: baltomore
+#setting: baltimore
 
 
 label start:
@@ -64,7 +77,7 @@ label start:
 
     e "You don't actually know what any of those words mean."
 
-    e "And you used a thesaurus to memorize thosse two sentences! I heard you practicing for weeks."
+    e "And you used a thesaurus to memorize those two sentences! I heard you practicing for weeks."
 
     e "You're still not going to convince anyone you solved mortality."
 
@@ -76,23 +89,22 @@ label start:
 
         "Me too!":
             $ vpoints += 1
+            g "*sighs* Thanks, you guys, but I know you're just being nice..."
             jump two       
         "*say nothing*":
+            g "*sighs* Thanks, you guys, but I know you're just being nice..."
             jump two
         
         "Really? I don't.":
             $ vpoints -= 1
+            g "Hmph. well at least they do."
+            e "____, be nice please."
+            n "Fine."
             jump two
 
         
 
 label two:
-
-    if vpoints < 0:
-        e "1"
-    elif vpoints > 0:
-        e "2"
-    else:
-        e "3"
-        
-    return
+    o "Come on everyone, let's go inside."
+    
+    
