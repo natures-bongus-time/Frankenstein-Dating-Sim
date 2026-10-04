@@ -94,7 +94,7 @@ label start:
         "*say nothing*":
             g "*sighs* Thanks, you guys, but I know you're just being nice..."
             jump two
-        
+
         "Really? I don't.":
             $ vpoints -= 1
             g "Hmph. well at least they do."
@@ -107,4 +107,29 @@ label start:
 label two:
     o "Come on everyone, let's go inside."
     
+    e "Okay."
+
+    f "Yay!"
+
+    g "Fine..."
+
+    h "Let's go, Victor! I'm sure you'll have fun. You just said it would be."
+
+    g "You understood any of those words?"
     
+    m "Yes."
+
+    e "yes"
+
+    n "Yes"
+
+    if vpoints < 0:
+        menu:
+            "None of them were that big anyway.":
+                vpoints -= 1
+                
+            
+            ""
+
+
+
