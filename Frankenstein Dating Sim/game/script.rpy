@@ -3,10 +3,28 @@
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
 
-define e = Character("Eileen")
+define e = Character("Elizabeth")
+
+define f = Character("Robert Waldon <3")
+
+define g = Character("vIcToR fRaNkEnStEiN")
+
+define h = Character("HENRY CLERVALLLLL!!!!")
+
+define i = Character("The Creature???") 
+
+define j = Character("Robert's sister")
+
+define k = Character("Mary Shelley????")
+
+define l = Character("PeRcY sHeLlY...")
+
+define m = Character("Rober and Henry simultaneously")
 
 
-# The game starts here.
+#I'm just going to write the actual thing in comments
+#setting: baltomore
+
 
 label start:
 
@@ -24,10 +42,43 @@ label start:
 
     # These display lines of dialogue.
 
-    e "You've created a new Ren'Py game."
+    h "OHMYGODGUYSWE'REHERETHEBUSRIDEWASSOLONGBUTNOWWEREINBALTIMORE!!!!!!!!!!"
+    
+    show Elizabeth happy
 
-    e "Once you add a story, pictures, and music, you can release it to the world!"
+    e "Robert, can you please translate for those of us that don't speak 'excited Henry?'"
 
-    # This ends the game.
+    f "I think he's just happy to be off the bus."
 
-    return
+    g "The facade of an aquatic habitat shall be quite exhilarating."
+
+    g "Alas, I shall have to leave you, my dear friends, as  I-"
+
+    "*WHACK*"
+
+    g "owww"
+
+    e "Sorry, Victor, but you were being annoying again. We talked about this!"
+
+    e "You don't actually know what any of those words mean."
+
+    e "And you used a thesaurus to memorize thosse two sentences! I heard you practicing for weeks."
+
+    e "You're still not going to convince anyone you solved mortality."
+
+    g "But I did..."
+
+    m "It's okay, I believe you!"
+
+    menu:
+
+        "Me too!":
+            return
+        
+        "*say nothing*":
+            return
+        
+        "Really? I don't.":
+            return
+
+        
