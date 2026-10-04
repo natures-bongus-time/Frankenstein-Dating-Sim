@@ -5,6 +5,11 @@
 init:
     $ vpoints = 0
 
+    $ epoints = 0
+
+    $ rpoints = 0
+    
+    $ hpoints = 0
 #points sysetem:
     #if vpoints < 0:
         #e "1"
@@ -51,7 +56,7 @@ label start:
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
-    # directory.
+    # directory.f
 
     show eileen happy
 
@@ -119,17 +124,66 @@ label two:
     
     m "Yes."
 
-    e "yes"
+    e "Yes."
 
-    n "Yes"
+    n "Yes."
 
     if vpoints < 0:
         menu:
             "None of them were that big anyway.":
-                vpoints -= 1
+                $ vpoints -= 1
+                jump three
                 
             
-            ""
+            "say nothing":
+                jump three
+    elif vpoints > 0:
+        menu: 
+            "Hey Victor, what do you want to see first? Let's go see that.":
+                jump victor_route
+            
+            "*Stay with the group*":
+                jump three
+
+    else:
+        jump three
 
 
+label three:
+    "As the group enters the aquarium:"
+    h "Wow."
 
+    f "This is amazing!"
+
+    "The two of them try to wander off but elizabeth stops them."
+
+    e "Let's all stay together, okay?"
+
+    menu:
+        
+        "Thanks Elizabeth.":
+            n "I'm glad you came on this trip."
+            n "I know you didn't want to come, but it's so much better with you here."
+            $ epoints += 1
+            jump four
+
+        "What should we see first?":
+            jump four
+     
+ 
+
+label victor_route:
+
+    e "*Sees you trying to cheer victor up and smiles* We'll let you two go. Have fun!"
+
+    f "*Grins* See you soon!"
+
+    h "BYE!!!!"
+
+    g "*laughs* Henry, please calm down before you have a heart attack."
+return
+
+            
+
+label four:
+    "test"
