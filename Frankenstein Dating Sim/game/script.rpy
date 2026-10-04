@@ -199,20 +199,37 @@ label four:
 
     menu: 
         "I am, and thanks for checking. you're a good person, Robert I really like you.":
-            $ rpoints +=  1
-            f "Awww, thanks! I really like you too."
-            jump six
+            f "Awww ... really like you too. *he's tearing up a little"
+            jump robert_choice
 
         "I am so far.":
             f "Glad to hear it!"
             jump six
 
+label robert_choice:
+    menu:
+        "*HUG HIM PLEASE*":
+            jump robert_route
+
+        "Dont hug him and be incorrect, but just know you were warned":
+            $ rpoints -= 1000000000
+            jump four
+
+
 label five: 
     show elizabeth_blushing
     e "I... thank you."
     e "I'm glad you're here too."
-    jump four
+    menu:
+        "*Hold her hand*":
+            jump elizabeth_route
 
+        "*Smile at her*":
+            n "(Calling to the group) Where should we go first?"
+            jump four
+
+label elizabeth_route:
+    return
 
 label six:
 
@@ -249,21 +266,20 @@ label six:
 label henry_route:
     return
 
-    
+
 label seven:
     e "Let's go see the coral reef exhibit! It sounds amazing."
     p "Yeah!"
 
     #scene change to coral reef
-
-    if epoints > vpoints and epoints > hpoints and epoints > rpoints:
+    if rpoints < 0:
+        jump creature_death
+    elif epoints > vpoints and epoints > hpoints:
         jump other_elizabeth_route
-    elif vpoints > epoints and vpoints > hpoints and vpoints > rpoints:
+    elif vpoints > epoints and vpoints > hpoints :
         jump other_victor_route
-    elif hpoints > vpoints and hpoints > epoints and hpoints > rpoints:
+    elif hpoints > vpoints and hpoints > epoints: 
         jump other_henry_route
-    elif rpoints > vpoints and rpoints > epoints and rpoints > hpoints:
-        jump robert_route
     else:
         jump no_route
 
