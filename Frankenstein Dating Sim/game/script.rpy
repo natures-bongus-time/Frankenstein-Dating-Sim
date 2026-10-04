@@ -41,6 +41,8 @@ define n = Character("You")
 
 define o = Character("Kate")
 
+define p = Character("Everyone")
+
 
 #I'm just going to write the actual thing in comments
 #setting: baltimore
@@ -165,7 +167,7 @@ label three:
             n "I'm glad you came on this trip."
             n "I know you didn't want to come, but it's so much better with you here."
             $ epoints += 1
-            jump four
+            jump five
 
         "What should we see first?":
             jump four
@@ -174,9 +176,9 @@ label three:
 
 label victor_route:
 
-    e "*Sees you trying to cheer victor up and smiles* We'll let you two go. Have fun!"
+    e "*Sees you trying to cheer Victor up and smiles* We'll let you two go. Have fun!"
 
-    f "*Grins* See you soon!"
+    f "** See you soon!"
 
     h "BYE!!!!"
 
@@ -186,4 +188,35 @@ return
             
 
 label four:
-    "test"
+    
+    h "JELLYFISH!!!!!!!"
+    p "*Laughs*"
+    e "I guess that's decided then! Let's go see some jellyfish."
+    
+    #scene change, only show robert, they're having a private conversation.
+
+    f "Hey, ___. are you having fun?"
+
+    menu: 
+        "I am, and thanks for checking. you're a good person, Robert.":
+            $ rpoints +=  1
+            f "Awww, thanks! I really like spending time with you."
+            jump six
+
+        "I am so far.":
+            f "Glad to hear it!"
+            jump six
+
+label six:
+
+    h "OHMYGODWE'REHERETHEJELLYFISHARESOCOOL!!!!!"
+
+    f "Let's go join the group."
+
+    #scene change, everyone's there, there's a cool picture of jellyfish.
+
+    h "___, isn't this the coolest place in the world ever to exist like ever?"
+
+    #menu:
+
+    return
