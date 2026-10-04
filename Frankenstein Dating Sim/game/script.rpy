@@ -1,7 +1,4 @@
-﻿# The script of the game goes in this file.
-
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
+﻿#wha
 init:
     $ vpoints = 0
 
@@ -21,7 +18,7 @@ init:
     
 define e = Character("Elizabeth")
 
-define f = Character("Robert Walen <3")
+define f = Character("Roberta Walden <3")
 
 define g = Character("vIcToRiA fRaNkEnStEiN")
 
@@ -70,7 +67,7 @@ label start:
 
     e "Roberta, can you please translate for those of us that don't speak 'excited Henrietta?'"
 
-    f "I think he's just happy to be off the bus."
+    f "I think she's just happy to be off the bus."
 
     g "The facade of an aquatic habitat shall be quite exhilarating."
 
@@ -105,7 +102,7 @@ label start:
         "Really? I don't.":
             $ vpoints -= 1
             g "Hmph. well at least they do."
-            e "____, be nice please."
+            e "Safie, be nice please."
             n "Fine."
             jump two
 
@@ -157,7 +154,7 @@ label three:
 
     f "This is amazing!"
 
-    "The two of them try to wander off but elizabeth stops them."
+    "The two of them try to wander off but Elizabeth stops them."
 
     e "Let's all stay together, okay?"
 
@@ -178,7 +175,7 @@ label victoria_route:
 
     e "*Sees you trying to cheer Victoria up and smiles* We'll let you two go. Have fun!"
 
-    f "** See you soon!"
+    f "See you soon!"
 
     h "BYE!!!!"
 
@@ -195,11 +192,11 @@ label four:
     
     #scene change, only show roberta, they're having a private conversation.
 
-    f "Hey, ___. are you having fun?"
+    f "Hey, Safie, are you having fun?"
 
     menu: 
         "I am, and thanks for checking. you're a good person, Roberta, and I really like you.":
-            f "Awww ... really like you too. *she's tearing up a little*"
+            f "Awww... I really like you too. *she's tearing up a little*"
             jump roberta_choice
 
         "I am so far.":
@@ -247,18 +244,18 @@ label six:
 
     #scene change, everyone's there, there's a cool picture of jellyfish.
 
-    h "___, isn't this the coolest place in the world ever to exist like ever?"
+    h "Safie, isn't this the coolest place in the world ever to exist like ever?"
 
     menu:
         "It's adorable how excited you are.":
             $ hpoints += 1
             show henrietta_blushing
             h "adsfsfsdfsdfsdfssfdsfsdfsdfdf"
-            e "*laughs* ___, stop teasing her!"
+            e "*laughs* Safie, stop teasing her!"
             if vpoints >= 0:
-                g "But Elizabeth, It's so entertaining when they do that!"
+                g "But Elizabeth, It's so entertaining when she do that!"
             else:
-                g "Yeah, ____, Stop it!"
+                g "Yeah, Safie, Stop it!"
             
             menu:
                 "*Keep Pushing*":
@@ -271,7 +268,7 @@ label six:
             h "Yeah!"
             jump seven
 
-label henry_route:
+label henrietta_route:
     n "But you like being teased, right?"
     show henrietta_blushing_harder
     h "I..."
@@ -281,9 +278,9 @@ label henry_route:
     menu:
         "HUG HER":
             jump henrietta_ending
-        "HUG HIM":
+        "HUG HER":
             jump henrietta_ending
-        "HUG HIM":
+        "HUG HER":
             jump henrietta_ending
 
 label seven:
@@ -293,10 +290,13 @@ label seven:
     #scene change to coral reef
     if rpoints < 0:
         jump creature_death
+    
+    elif vpoints > epoints and vpoints > hpoints:
+        jump other_victoria_route
+    elif vpoints < 0:
+        jump victor_hate_confession
     elif epoints > vpoints and epoints > hpoints:
         jump other_elizabeth_route
-    elif vpoints > epoints and vpoints > hpoints :
-        jump other_victoria_route
     elif hpoints > vpoints and hpoints > epoints: 
         jump other_henrietta_route
     else:
@@ -306,13 +306,13 @@ label seven:
 label other_elizabeth_route: 
     e "Wow. look at this! I think it's so beautiful that even Henry is speechless. and..."
     e "*inhales nervously* You... you know what else is beautiful?"
-    e "You. You're beautiful, ___."
+    e "You. You're beautiful, Safie."
     if vpoints >= 0:
         e "And you're so kind."
     e "and thoughtful."
     e "Do you, I don't know, want to do something together? Like a date?"
-    e "My only experience with dating would have been my marriage to Victoiar."
-    e "But I didn't actually like her. everything about her"
+    e "My only experience with dating would have been my marriage to Victoia."
+    e "But I didn't actually like her. everything about her is a red flag."
     e "She's so obsessive, and she was a terrible mom to The Creature. And she's just creepy."
     
     #The creature wanders by and overhears
@@ -352,7 +352,10 @@ label creature_death:
     "why would you do that?"
     return
 
-label henriettaR_ending:
+label henrietta_ending:
     "awwww"
+    return
 
-
+label victor_hate_confession:
+    g "Hey, Safie"
+    return
