@@ -2,6 +2,8 @@
 
 # Declare characters used by this game. The color argument colorizes the
 # name of the character.
+init:
+    $ vpoints = 0
 
 define e = Character("Elizabeth")
 
@@ -73,12 +75,24 @@ label start:
     menu:
 
         "Me too!":
-            return
-        
+            $ vpoints += 1
+            jump two       
         "*say nothing*":
-            return
+            jump two
         
         "Really? I don't.":
-            return
+            $ vpoints -= 1
+            jump two
 
         
+
+label two:
+
+    if vpoints < 0:
+        e "1"
+    elif vpoints > 0:
+        e "2"
+    else:
+        e "3"
+        
+    return
