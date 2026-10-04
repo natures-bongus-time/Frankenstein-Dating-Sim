@@ -31,7 +31,7 @@ define i = Character("The Creature")
 
 define j = Character("Robert's sister")
 
-define k = Character("Mary Shelley????")
+define k = Character("THE AUTHOR OF THIS GAME???")
 
 define l = Character("PeRcY sHeLlY...")
 
@@ -139,7 +139,7 @@ label two:
             
             "say nothing":
                 jump three
-    elif vpoints > 0:
+    elif vpoints > 0:                                                                                                                        
         menu: 
             "Hey Victor, what do you want to see first? Let's go see that.":
                 jump victor_route
@@ -199,7 +199,7 @@ label four:
 
     menu: 
         "I am, and thanks for checking. you're a good person, Robert I really like you.":
-            f "Awww ... really like you too. *he's tearing up a little"
+            f "Awww ... really like you too. *he's tearing up a little*"
             jump robert_choice
 
         "I am so far.":
@@ -207,13 +207,18 @@ label four:
             jump six
 
 label robert_choice:
+
+    k "HELLO. SORRY TO INTERRUPT YOUR STORY, BUT PLEASE MAKE THE NEXT CHOICE CORRECTLY."
+    k "I'M QUITE ATTACHED TO ROBERT, AND IF YOU DON'T MAKE HIM HAPPY IT WONT END WELL."
+
     menu:
         "*HUG HIM PLEASE*":
             jump robert_route
 
         "Dont hug him and be incorrect, but just know you were warned":
             $ rpoints -= 1000000000
-            jump four
+            jump six
+        
 
 
 label five: 
@@ -233,9 +238,12 @@ label elizabeth_route:
 
 label six:
 
-    h "OHMYGODWE'REHERETHEJELLYFISHARESOCOOL!!!!!"
+    h "OHMYGODCOMEHERETHEJELLYFISHARESOCOOL!!!!!"
 
     f "Let's go join the group."
+    if rpoints < 0:
+        f "We... we can finish our discussion later"
+    
 
     #scene change, everyone's there, there's a cool picture of jellyfish.
 
@@ -264,8 +272,19 @@ label six:
             jump seven
 
 label henry_route:
-    return
-
+    n "But you like being teased, right?"
+    show henry_blushing_harder
+    h "I..."
+    h "Only when you do it..."
+    "*You're blushing too, and everyone else is watching you two, fascinated*"
+    h "Okay fine! I like you, okay? and I'm being awkward about it and now you won't like me and and and and..."
+    menu:
+        "HUG HIM":
+            jump henry_ending
+        "HUG HIM":
+            jump henry_ending
+        "HUG HIM":
+            jump henry_ending
 
 label seven:
     e "Let's go see the coral reef exhibit! It sounds amazing."
@@ -328,3 +347,12 @@ label robert_route:
 label no_route:
     "5"
     return
+
+label creature_death:
+    "why would you do that?"
+    return
+
+label henry_ending:
+    "awwww"
+
+
