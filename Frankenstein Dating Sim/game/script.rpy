@@ -198,9 +198,9 @@ label four:
     f "Hey, ___. are you having fun?"
 
     menu: 
-        "I am, and thanks for checking. you're a good person, Robert.":
+        "I am, and thanks for checking. you're a good person, Robert I really like you.":
             $ rpoints +=  1
-            f "Awww, thanks! I really like spending time with you."
+            f "Awww, thanks! I really like you too."
             jump six
 
         "I am so far.":
@@ -217,6 +217,51 @@ label six:
 
     h "___, isn't this the coolest place in the world ever to exist like ever?"
 
-    #menu:
+    menu:
+        "It's adorable how excited you are.":
+            $ hpoints += 1
+            show henry_blushing
+            h "adsfsfsdfsdfsdfssfdsfsdfsdfdf"
+            e "*laughs* ___, stop teasing him!"
+            if vpoints >= 0:
+                g "But elizabeth, It's so entertaining when they do that!"
+            else:
+                g "Yeah, ____, Stop it!"
+            jump seven
+        
+        "it's pretty cool.":
+            h "Yeah!"
+            jump seven
 
-    return
+label seven:
+    e "Let's go see the coral reef exhibit! it sounds super romantic."
+    p "Yeah!"
+
+    #scene change to coral reef
+
+    if epoints > vpoints and epoints > hpoints and epoints > rpoints:
+        jump elizabeth_route
+    elif vpoints > epoints and vpoints > hpoints and vpoints > rpoints:
+        jump other_victor_route
+    elif hpoints > vpoints and hpoints > epoints and hpoints > rpoints:
+        jump henry_route
+    elif rpoints > vpoints and rpoints > epoints and rpoints > hpoints:
+        jump robert_route
+    else:
+        jump no_route
+
+    
+label elizabeth_route: 
+    "1"
+
+label other_victor_route:
+    "2"
+
+label henry_route:
+    "3"
+
+label robert_route:
+    "4"
+
+label no_route:
+    "5"
