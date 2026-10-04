@@ -189,7 +189,7 @@ return
 
 label four:
     
-    h "JELLYFISH!!!!!!!"
+    h "IWANTTOSEEJELLYFISH!!!!!!!"
     p "*Laughs*"
     e "I guess that's decided then! Let's go see some jellyfish."
     
@@ -231,34 +231,44 @@ label six:
             h "adsfsfsdfsdfsdfssfdsfsdfsdfdf"
             e "*laughs* ___, stop teasing him!"
             if vpoints >= 0:
-                g "But Elsizabeth, It's so entertaining when they do that!"
+                g "But Elizabeth, It's so entertaining when they do that!"
             else:
                 g "Yeah, ____, Stop it!"
-            jump seven
+            
+            menu:
+                "*Keep Pushing*":
+                    jump henry_route
+
+                "*Leave him alone*":
+                    jump seven
         
-        "it's pretty cool.":
+        "It's pretty cool.":
             h "Yeah!"
             jump seven
 
+label henry_route:
+    return
+
+    
 label seven:
-    e "Let's go see the coral reef exhibit! it sounds super romantic."
+    e "Let's go see the coral reef exhibit! It sounds amazing."
     p "Yeah!"
 
     #scene change to coral reef
 
     if epoints > vpoints and epoints > hpoints and epoints > rpoints:
-        jump elizabeth_route
+        jump other_elizabeth_route
     elif vpoints > epoints and vpoints > hpoints and vpoints > rpoints:
         jump other_victor_route
     elif hpoints > vpoints and hpoints > epoints and hpoints > rpoints:
-        jump henry_route
+        jump other_henry_route
     elif rpoints > vpoints and rpoints > epoints and rpoints > hpoints:
         jump robert_route
     else:
         jump no_route
 
     
-label elizabeth_route: 
+label other_elizabeth_route: 
     e "Wow. look at this! I think it's so beautiful that even Henry is speechless. and..."
     e "*inhales nervously* You... you know what else is beautiful?"
     e "You. You're beautiful, ___."
@@ -266,18 +276,24 @@ label elizabeth_route:
         e "And you're so kind."
     e "and thoughtful."
     e "Do you, I don't know, want to do something together? Like a date?"
-    e "My only experience with dating would have been my marriage to Victor..."
-    e "But everything about him is a red flag."
-    e "He's so obsessive, and he was a terrible dad to The Creature."
+    e "My only experience with dating would have been my marriage to Victor."
+    e "But I didn't actually like him. everything about him"
+    e "He's so obsessive, and he was a terrible dad to The Creature. And he's just creepy."
     
     #The creature wanders by and overhears
 
-    i "That's tue, he just abandoned me in his lab after obsessing over me for years."
+    i "That's true, he just abandoned me in his lab after obsessing over me for years."
     i "Once he starts something he never stops." 
 
     e "Uh... Thanks for that I guess?"
 
     #the creature leaves.
+    e "Anyway, I'm sorry if I'm not good at this..."
+    n "Stop that, you're doing great."
+    e "*inhales* so... do you want to?"
+    n "I would love to."
+
+    #ending card
     
     return
 
@@ -285,7 +301,7 @@ label other_victor_route:
     "2"
     return
 
-label henry_route:
+label other_henry_route:
     "3"
     return
 
