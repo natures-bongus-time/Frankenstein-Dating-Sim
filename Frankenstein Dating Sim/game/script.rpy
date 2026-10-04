@@ -21,21 +21,21 @@ init:
     
 define e = Character("Elizabeth")
 
-define f = Character("Robert Waldon <3")
+define f = Character("Robert Walen <3")
 
-define g = Character("vIcToR fRaNkEnStEiN")
+define g = Character("vIcToRiA fRaNkEnStEiN")
 
-define h = Character("HENRY CLERVALLLLL!!!!")
+define h = Character("HENRIETTA CLERVALLLLL!!!!")
 
 define i = Character("The Creature") 
 
-define j = Character("Robert's sister")
+define j = Character("Roberta's sister")
 
 define k = Character("THE AUTHOR OF THIS GAME???")
 
 define l = Character("PeRcY sHeLlY...")
 
-define m = Character("Robert and Henry simultaneously")
+define m = Character("Roberta and Henrietta simultaneously")
 
 define n = Character("You")
 
@@ -68,7 +68,7 @@ label start:
     
     show Elizabeth happy
 
-    e "Robert, can you please translate for those of us that don't speak 'excited Henry?'"
+    e "Roberta, can you please translate for those of us that don't speak 'excited Henrietta?'"
 
     f "I think he's just happy to be off the bus."
 
@@ -80,7 +80,7 @@ label start:
 
     g "owww"
 
-    e "Sorry, Victor, but you were being annoying again. We talked about this!"
+    e "Sorry, Victoria, but you were being annoying again. We talked about this!"
 
     e "You don't actually know what any of those words mean."
 
@@ -120,7 +120,7 @@ label two:
 
     g "Fine..."
 
-    h "Let's go, Victor! I'm sure you'll have fun. You just said it would be."
+    h "Let's go, Victoria! I'm sure you'll have fun. You just said it would be."
 
     g "You understood any of those words?"
     
@@ -137,12 +137,12 @@ label two:
                 jump three
                 
             
-            "say nothing":
+            "Say nothing":
                 jump three
     elif vpoints > 0:                                                                                                                        
         menu: 
-            "Hey Victor, what do you want to see first? Let's go see that.":
-                jump victor_route
+            "Hey Victoria, what do you want to see first? Let's go see that.":
+                jump victoria_route
             
             "*Stay with the group*":
                 jump three
@@ -174,15 +174,15 @@ label three:
      
  
 
-label victor_route:
+label victoria_route:
 
-    e "*Sees you trying to cheer Victor up and smiles* We'll let you two go. Have fun!"
+    e "*Sees you trying to cheer Victoria up and smiles* We'll let you two go. Have fun!"
 
     f "** See you soon!"
 
     h "BYE!!!!"
 
-    g "*laughs* Henry, please calm down before you have a heart attack."
+    g "*laughs* Henrietta, please calm down before you have a heart attack."
 return
 
             
@@ -193,29 +193,29 @@ label four:
     p "*Laughs*"
     e "I guess that's decided then! Let's go see some jellyfish."
     
-    #scene change, only show robert, they're having a private conversation.
+    #scene change, only show roberta, they're having a private conversation.
 
     f "Hey, ___. are you having fun?"
 
     menu: 
-        "I am, and thanks for checking. you're a good person, Robert I really like you.":
-            f "Awww ... really like you too. *he's tearing up a little*"
-            jump robert_choice
+        "I am, and thanks for checking. you're a good person, Roberta, and I really like you.":
+            f "Awww ... really like you too. *she's tearing up a little*"
+            jump roberta_choice
 
         "I am so far.":
             f "Glad to hear it!"
             jump six
 
-label robert_choice:
+label roberta_choice:
 
     k "HELLO. SORRY TO INTERRUPT YOUR STORY, BUT PLEASE MAKE THE NEXT CHOICE CORRECTLY."
-    k "I'M QUITE ATTACHED TO ROBERT, AND IF YOU DON'T MAKE HIM HAPPY IT WONT END WELL."
+    k "I'M QUITE ATTACHED TO ROBERTA, AND IF YOU DON'T MAKE HER HAPPY IT WONT END WELL."
 
     menu:
-        "*HUG HIM PLEASE*":
-            jump robert_route
+        "*HUG HER PLEASE*":
+            jump roberta_route
 
-        "Dont hug him and be incorrect, but just know you were warned":
+        "Dont hug her and be incorrect, but just know you were warned":
             $ rpoints -= 1000000000
             jump six
         
@@ -252,9 +252,9 @@ label six:
     menu:
         "It's adorable how excited you are.":
             $ hpoints += 1
-            show henry_blushing
+            show henrietta_blushing
             h "adsfsfsdfsdfsdfssfdsfsdfsdfdf"
-            e "*laughs* ___, stop teasing him!"
+            e "*laughs* ___, stop teasing her!"
             if vpoints >= 0:
                 g "But Elizabeth, It's so entertaining when they do that!"
             else:
@@ -262,9 +262,9 @@ label six:
             
             menu:
                 "*Keep Pushing*":
-                    jump henry_route
+                    jump henrietta_route
 
-                "*Leave him alone*":
+                "*Leave her alone*":
                     jump seven
         
         "It's pretty cool.":
@@ -273,18 +273,18 @@ label six:
 
 label henry_route:
     n "But you like being teased, right?"
-    show henry_blushing_harder
+    show henrietta_blushing_harder
     h "I..."
     h "Only when you do it..."
     "*You're blushing too, and everyone else is watching you two, fascinated*"
     h "Okay fine! I like you, okay? and I'm being awkward about it and now you won't like me and and and and..."
     menu:
+        "HUG HER":
+            jump henrietta_ending
         "HUG HIM":
-            jump henry_ending
+            jump henrietta_ending
         "HUG HIM":
-            jump henry_ending
-        "HUG HIM":
-            jump henry_ending
+            jump henrietta_ending
 
 label seven:
     e "Let's go see the coral reef exhibit! It sounds amazing."
@@ -296,9 +296,9 @@ label seven:
     elif epoints > vpoints and epoints > hpoints:
         jump other_elizabeth_route
     elif vpoints > epoints and vpoints > hpoints :
-        jump other_victor_route
+        jump other_victoria_route
     elif hpoints > vpoints and hpoints > epoints: 
-        jump other_henry_route
+        jump other_henrietta_route
     else:
         jump no_route
 
@@ -311,14 +311,14 @@ label other_elizabeth_route:
         e "And you're so kind."
     e "and thoughtful."
     e "Do you, I don't know, want to do something together? Like a date?"
-    e "My only experience with dating would have been my marriage to Victor."
-    e "But I didn't actually like him. everything about him"
-    e "He's so obsessive, and he was a terrible dad to The Creature. And he's just creepy."
+    e "My only experience with dating would have been my marriage to Victoiar."
+    e "But I didn't actually like her. everything about her"
+    e "She's so obsessive, and she was a terrible mom to The Creature. And she's just creepy."
     
     #The creature wanders by and overhears
 
-    i "That's true, he just abandoned me in his lab after obsessing over me for years."
-    i "Once he starts something he never stops." 
+    i "That's true, she just abandoned me in her lab after obsessing over me for years."
+    i "Once she starts something she never stops." 
 
     e "Uh... Thanks for that I guess?"
 
@@ -332,15 +332,15 @@ label other_elizabeth_route:
     
     return
 
-label other_victor_route:
+label other_victoria_route:
     "2"
     return
 
-label other_henry_route:
+label other_henrietta_route:
     "3"
     return
 
-label robert_route:
+label roberta_route:
     "4"
     return
 
@@ -352,7 +352,7 @@ label creature_death:
     "why would you do that?"
     return
 
-label henry_ending:
+label henriettaR_ending:
     "awwww"
 
 
