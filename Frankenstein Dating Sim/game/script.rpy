@@ -7,7 +7,20 @@ init:
     $ rpoints = 0
     
     $ hpoints = 0
-#points sysetem:
+    
+    image elizabeth_blushing = "elizabeth_blushing.png"
+    
+    image elizabeth happy = "elizabeth_happy.png"
+
+    image bg school bus = "school-bus.jpg"
+    
+    image henrietta_blushing = "codel1.png"
+
+    image henrietta_blushing_harder = "codel1.png"
+
+    image henrietta happy = "codel90.png"
+
+#points sysetem
     #if vpoints < 0:
         #e "1"
     #elif vpoints > 0:
@@ -51,31 +64,39 @@ label start:
     # add a file (named either "bg room.png" or "bg room.jpg") to the
     # images directory to show it.
 
-    scene bg room
+    scene bg school bus
 
     # This shows a character sprite. A placeholder is used, but you can
     # replace it by adding a file named "eileen happy.png" to the images
     # directory.f
-
-    show eileen happy
+    show henrietta happy
 
     # These display lines of dialogue.
 
     h "OHMYGODGUYSWE'REHERETHEBUSRIDEWASSOLONGBUTNOWWEREINBALTIMORE!!!!!!!!!!"
     
-    show Elizabeth happy
+    scene bg school bus
+
+    show elizabeth happy
 
     e "Roberta, can you please translate for those of us that don't speak 'excited Henrietta?'"
+    scene bg school bus
 
     f "I think she's just happy to be off the bus."
+
+    scene bg school bus
 
     g "The facade of an aquatic habitat shall be quite exhilarating."
 
     g "Alas, I shall have to leave you, my dear friends, as  I-"
 
+    scene bg school bus
+
     "*WHACK*"
 
     g "owww"
+    
+    show elizabeth happy
 
     e "Sorry, Victoria, but you were being annoying again. We talked about this!"
 
@@ -117,6 +138,10 @@ label two:
 
     g "Fine..."
 
+    scene bg school bus
+
+    show henrietta happy
+
     h "Let's go, Victoria! I'm sure you'll have fun. You just said it would be."
 
     g "You understood any of those words?"
@@ -156,6 +181,8 @@ label three:
 
     "The two of them try to wander off but Elizabeth stops them."
 
+    show elizabeth_happy
+    
     e "Let's all stay together, okay?"
 
     menu:
@@ -234,6 +261,8 @@ label elizabeth_route:
     return
 
 label six:
+    
+    show henrietta happy
 
     h "OHMYGODCOMEHERETHEJELLYFISHARESOCOOL!!!!!"
 
@@ -273,7 +302,7 @@ label henrietta_route:
     show henrietta_blushing_harder
     h "I..."
     h "Only when you do it..."
-    "*You're blushing too, and everyone else is watching you two, fascinated*"
+    "*Everyone else is watching you two, fascinated*"
     h "Okay fine! I like you, okay? and I'm being awkward about it and now you won't like me and and and and..."
     menu:
         "HUG HER":
@@ -294,7 +323,7 @@ label seven:
     elif vpoints > epoints and vpoints > hpoints:
         jump other_victoria_route
     elif vpoints < 0:
-        jump victor_hate_confession
+        jump victoria_hate_confession
     elif epoints > vpoints and epoints > hpoints:
         jump other_elizabeth_route
     elif hpoints > vpoints and hpoints > epoints: 
@@ -305,6 +334,7 @@ label seven:
     
 label other_elizabeth_route: 
     e "Wow. look at this! I think it's so beautiful that even Henry is speechless. and..."
+    show elizabeth_blushing
     e "*inhales nervously* You... you know what else is beautiful?"
     e "You. You're beautiful, Safie."
     if vpoints >= 0:
@@ -337,7 +367,7 @@ label other_victoria_route:
     return
 
 label other_henrietta_route:
-    "3"
+    
     return
 
 label roberta_route:
@@ -349,13 +379,42 @@ label no_route:
     return
 
 label creature_death:
-    "why would you do that?"
+    #creature pops up and grabs safie
+  
+    i "Why would you do that?"
+    n "Do what?"
+    i "You didn't hug Roberta!"
+    n "What?"
+    i "I saw you two talking and she was crying and you should have hugged her."
+    #insert mary shelley
+    k "I TOLD YOU TO MAKE THE RIGHT CHOICE."
+    "*SNAP*"
+    #show corpse
+    #show robert kneeling, crying
+    show bg creature_death_ending_card
     return
 
 label henrietta_ending:
-    "awwww"
+    #show hug
+    n "I like you too. You're always so cheerful, and it makes everyone else so happy."
+    n "And even when Victoria was awful to you you went on that trip with her." 
+    n "You love the world and life, and you have a great sense of wonder."
+    n "I love you."
+    #show henrietta_ending_card
     return
 
-label victor_hate_confession:
-    g "Hey, Safie"
+label victoria_hate_confession:
+    g "Hey, Safie."
+    menu:
+        "Yeah?":
+            #animate a slap type thing
+            g "I hate you."
+            g "You're not a good enough friend to me and you're kinda just mean."
+        "*ignore her*":
+            g "You disgust me." 
+            g "You don't pay attention to me, and you dismiss everything I say."
+            g "'I will be with you on your wedding night.'"
+            g "you left that note, didn't you?"
+            g "Don't worry, I'll be ready for you."
+            #show victoria_hate_ending_card
     return
