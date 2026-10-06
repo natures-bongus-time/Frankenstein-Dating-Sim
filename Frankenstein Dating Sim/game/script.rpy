@@ -282,7 +282,7 @@ label six:
             h "adsfsfsdfsdfsdfssfdsfsdfsdfdf"
             e "*laughs* Safie, stop teasing her!"
             if vpoints >= 0:
-                g "But Elizabeth, It's so entertaining when she do that!"
+                g "But Elizabeth, It's so entertaining when she does that!"
             else:
                 g "Yeah, Safie, Stop it!"
             
@@ -363,7 +363,27 @@ label other_elizabeth_route:
     return
 
 label other_victoria_route:
-    "2"
+    n "Hey, Victoria, can I talk to you?"
+
+    g "I suppose I can put the very important thoughts I'm thinking on hold."
+    g "What is it?"
+
+    n "I... *sigh* Will you marry me?"
+
+    g "WHAT?"
+    
+    n "*laughs* I'm messing with you. I thought that would be a fun way to ask you out."
+
+    g "I..."
+
+    g "Okay. I'll marry you."
+
+    n "WHAT?"
+
+    g "you heard me."
+
+    #marriage_ending_card
+
     return
 
 label other_henrietta_route:
@@ -371,11 +391,30 @@ label other_henrietta_route:
     return
 
 label roberta_route:
-    "4"
+    f "You're... hugging me."
+    n "You were crying!"
+    f "I just..."
+    n "Just what?"
+    f "Do you want to go to that fancy restaurant downtown sometime?"
+    f "Just the two of us?"
+    n "Absolutely."
     return
 
 label no_route:
-    "5"
+    "BREAKING NEWS"
+    #screen shake
+    e "What's going on?"
+
+    "ALIENS HAVE INVADED EARTH, STAND BY FOR FURTHER INSTRUCTIONS"
+    
+    #cut to a different background of like a mansion
+
+    l "Seriously Mary? Aliens?"
+
+    k "What's the problem? If you don't take any interesting choices, I make somethin interesting happen."
+    k "It's just a good idea."
+
+    #show UFO_ending_card
     return
 
 label creature_death:
