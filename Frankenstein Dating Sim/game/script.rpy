@@ -8,17 +8,24 @@ init:
     
     $ hpoints = 0
     
-    image elizabeth_blushing = "elizabeth_blushing.png"
+    image elizabeth blushing = "elizabeth_blushing.png"
     
     image elizabeth happy = "elizabeth_happy.png"
 
     image bg school bus = "school-bus.jpg"
     
-    image henrietta_blushing = "codel1.png"
+    image henrietta blushing = "codel1.png"
 
-    image henrietta_blushing_harder = "codel1.png"
+    image henrietta blushing harder = "codel1.png"
 
     image henrietta happy = "codel90.png"
+
+    image roberta happy = "roberta_smile.png"
+ 
+
+    image roberta normal = "roberta_normal.png"
+
+    
 
 #points sysetem
     #if vpoints < 0:
@@ -29,17 +36,17 @@ init:
        #e "3"
         
     
-define e = Character("Elizabeth")
+define e = Character("Elizabeth", image = "elizabeth")
 
 define f = Character("Roberta Walden <3")
 
 define g = Character("vIcToRiA fRaNkEnStEiN")
 
-define h = Character("HENRIETTA CLERVALLLLL!!!!")
+define h = Character("HENRIETTA CLERVALLLLL!!!!", image = "henrietta")
 
 define i = Character("The Creature") 
 
-define j = Character("Roberta's sister")
+define j = Character("Roberta's sister", image = "roberta")
 
 define k = Character("THE AUTHOR OF THIS GAME???")
 
@@ -75,22 +82,23 @@ label start:
 
     h "OHMYGODGUYSWE'REHERETHEBUSRIDEWASSOLONGBUTNOWWEREINBALTIMORE!!!!!!!!!!"
     
-    scene bg school bus
+    hide henrietta happy
 
     show elizabeth happy
 
     e "Roberta, can you please translate for those of us that don't speak 'excited Henrietta?'"
-    scene bg school bus
+    hide elizabeth happy
 
+    show roberta happy
     f "I think she's just happy to be off the bus."
-
-    scene bg school bus
+    hide roberta happy
+    
 
     g "The facade of an aquatic habitat shall be quite exhilarating."
 
     g "Alas, I shall have to leave you, my dear friends, as  I-"
 
-    scene bg school bus
+   
 
     "*WHACK*"
 
@@ -104,7 +112,10 @@ label start:
 
     e "And you used a thesaurus to memorize those two sentences! I heard you practicing for weeks."
 
+
     e "You're still not going to convince anyone you solved mortality."
+    
+    hide elizabeth happy
 
     g "But I did..."
 
@@ -123,7 +134,9 @@ label start:
         "Really? I don't.":
             $ vpoints -= 1
             g "Hmph. well at least they do."
+            show elizabeth happy
             e "Safie, be nice please."
+            hide elizabeth happy
             n "Fine."
             jump two
 
@@ -131,25 +144,31 @@ label start:
 
 label two:
     o "Come on everyone, let's go inside."
+
+    show elizabeth happy
     
     e "Okay."
-
+    hide elizabeth happy
+    show roberta happy
     f "Yay!"
+    hide roberta happy
 
     g "Fine..."
-
-    scene bg school bus
 
     show henrietta happy
 
     h "Let's go, Victoria! I'm sure you'll have fun. You just said it would be."
 
+    hide henrietta happy
+
     g "You understood any of those words?"
     
     m "Yes."
 
-    e "Yes."
+    show elizabeth happy
 
+    e "Yes."
+    hide elizabeth happy
     n "Yes."
 
     if vpoints < 0:
@@ -175,15 +194,18 @@ label two:
 
 label three:
     "As the group enters the aquarium:"
+    show henrietta happy
     h "Wow."
-
+    hide henrietta happy
+    show roberta happy
     f "This is amazing!"
-
+    hide roberta happy
     "The two of them try to wander off but Elizabeth stops them."
 
-    show elizabeth_happy
+    show elizabeth happy
     
     e "Let's all stay together, okay?"
+    hide elizabeth happy
 
     menu:
         
@@ -200,14 +222,32 @@ label three:
 
 label victoria_route:
 
+    
+    show elizabeth happy
     e "*Sees you trying to cheer Victoria up and smiles* We'll let you two go. Have fun!"
+
+    hide elizabeth happy
 
     f "See you soon!"
 
+    show henrietta happy
+
     h "BYE!!!!"
 
+    hide henrietta happy
+
     g "*laughs* Henrietta, please calm down before you have a heart attack."
-return
+
+    g "WeLl LeTs Go SaFiE? AaAaAaAaAa"
+
+    "*gasp*"
+
+    "It turns out, this was all a dream. The trip is still in two weeks."
+
+    #ending card '
+
+
+    return
 
             
 
@@ -215,9 +255,11 @@ label four:
     
     h "IWANTTOSEEJELLYFISH!!!!!!!"
     p "*Laughs*"
+    show elizabeth happy
     e "I guess that's decided then! Let's go see some jellyfish."
+    hide elizabeth happy
     
-    #scene change, only show roberta, they're having a private conversation.
+    show roberta happy
 
     f "Hey, Safie, are you having fun?"
 
@@ -262,7 +304,7 @@ label elizabeth_route:
 
 label six:
     
-    show henrietta happy
+    
 
     h "OHMYGODCOMEHERETHEJELLYFISHARESOCOOL!!!!!"
 
@@ -273,14 +315,19 @@ label six:
 
     #scene change, everyone's there, there's a cool picture of jellyfish.
 
+    show henrietta happy
+
     h "Safie, isn't this the coolest place in the world ever to exist like ever?"
 
     menu:
         "It's adorable how excited you are.":
             $ hpoints += 1
-            show henrietta_blushing
+            show henrietta blushing
             h "adsfsfsdfsdfsdfssfdsfsdfsdfdf"
+            hide henrietta blushing
+            show elizabeth happy 
             e "*laughs* Safie, stop teasing her!"
+            hide elizabeth happy
             if vpoints >= 0:
                 g "But Elizabeth, It's so entertaining when she does that!"
             else:
@@ -291,6 +338,7 @@ label six:
                     jump henrietta_route
 
                 "*Leave her alone*":
+                    n "fine"
                     jump seven
         
         "It's pretty cool.":
@@ -299,7 +347,7 @@ label six:
 
 label henrietta_route:
     n "But you like being teased, right?"
-    show henrietta_blushing_harder
+    show henrietta blushing harder
     h "I..."
     h "Only when you do it..."
     "*Everyone else is watching you two, fascinated*"
@@ -313,7 +361,9 @@ label henrietta_route:
             jump henrietta_ending
 
 label seven:
+    show elizabeth happy
     e "Let's go see the coral reef exhibit! It sounds amazing."
+    hide elizabeth happy
     p "Yeah!"
 
     #scene change to coral reef
@@ -333,8 +383,10 @@ label seven:
 
     
 label other_elizabeth_route: 
-    e "Wow. look at this! I think it's so beautiful that even Henry is speechless. and..."
-    show elizabeth_blushing
+    show elizabeth happy
+    e "Wow. look at this! It's beautiful and..."
+    hide elizabeth happy
+    show elizabeth blushing
     e "*inhales nervously* You... you know what else is beautiful?"
     e "You. You're beautiful, Safie."
     if vpoints >= 0:
@@ -344,15 +396,17 @@ label other_elizabeth_route:
     e "My only experience with dating would have been my marriage to Victoia."
     e "But I didn't actually like her. everything about her is a red flag."
     e "She's so obsessive, and she was a terrible mom to The Creature. And she's just creepy."
-    
+    hide elizabeth blushing
     #The creature wanders by and overhears
 
     i "That's true, she just abandoned me in her lab after obsessing over me for years."
     i "Once she starts something she never stops." 
 
+    show elizabeth blushing
+
     e "Uh... Thanks for that I guess?"
 
-    #the creature leaves.
+    "the creature leaves."
     e "Anyway, I'm sorry if I'm not good at this..."
     n "Stop that, you're doing great."
     e "*inhales* so... do you want to?"
@@ -387,10 +441,24 @@ label other_victoria_route:
     return
 
 label other_henrietta_route:
-    
+
+    show henrietta happy
+    h "HEY SAFIE!"
+    n "Yeah?"
+    h "COME LOOK AT THIS!"
+    n "*laughs* Okay. I'm coming."
+    h "Look at this fish? Isn't it just the cutest?"
+    n "Actually, you're-"
+    h "OMG THEY'RE HIRING!!!!!!!!"
+    h "I HAVE TO APPLY."
+    scene transition
+    "She gets the job and lives in Baltimore happily for the rest of her life."
+    "You never get to ask her out."
+    #ending card
     return
 
 label roberta_route:
+    show roberta crying
     f "You're... hugging me."
     n "You were crying!"
     f "I just..."
@@ -429,7 +497,7 @@ label creature_death:
     k "I TOLD YOU TO MAKE THE RIGHT CHOICE."
     "*SNAP*"
     #show corpse
-    #show robert kneeling, crying
+    #show roberta kneeling, crying
     show bg creature_death_ending_card
     return
 
