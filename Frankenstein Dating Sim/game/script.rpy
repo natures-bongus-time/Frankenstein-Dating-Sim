@@ -25,6 +25,8 @@ init:
 
     image roberta normal = "roberta_normal.png"
 
+    image victoria = "victoria.png"
+
     
 
 #points sysetem
@@ -93,7 +95,7 @@ label start:
     f "I think she's just happy to be off the bus."
     hide roberta happy
     
-
+    show victoria
     g "The facade of an aquatic habitat shall be quite exhilarating."
 
     g "Alas, I shall have to leave you, my dear friends, as  I-"
@@ -103,6 +105,8 @@ label start:
     "*WHACK*"
 
     g "owww"
+
+    hide victoria
     
     show elizabeth happy
 
@@ -116,6 +120,8 @@ label start:
     e "You're still not going to convince anyone you solved mortality."
     
     hide elizabeth happy
+
+    show victoria
 
     g "But I did..."
 
@@ -143,6 +149,8 @@ label start:
         
 
 label two:
+
+    hide victoria
     o "Come on everyone, let's go inside."
 
     show elizabeth happy
@@ -153,7 +161,11 @@ label two:
     f "Yay!"
     hide roberta happy
 
+    show victoria
+
     g "Fine..."
+
+    hide victoria
 
     show henrietta happy
 
@@ -161,9 +173,13 @@ label two:
 
     hide henrietta happy
 
+    show victoria
+
     g "You understood any of those words?"
     
     m "Yes."
+
+    hide victoria
 
     show elizabeth happy
 
@@ -205,7 +221,7 @@ label three:
     show elizabeth happy
     
     e "Let's all stay together, okay?"
-    hide elizabeth happy
+    
 
     menu:
         
@@ -236,25 +252,33 @@ label victoria_route:
 
     hide henrietta happy
 
+    show victoria happy
+
     g "*laughs* Henrietta, please calm down before you have a heart attack."
 
-    g "WeLl LeTs Go SaFiE? AaAaAaAaAa"
+    hide victoria
 
     "*gasp*"
 
     "It turns out, this was all a dream. The trip is still in two weeks."
 
-    #ending card '
 
+
+    "DREAM ENDING"
 
     return
 
             
 
 label four:
+
+    hide elizabeth happy
+
+    show Henrietta happy
     
     h "IWANTTOSEEJELLYFISH!!!!!!!"
     p "*Laughs*"
+    hide henrietta happy
     show elizabeth happy
     e "I guess that's decided then! Let's go see some jellyfish."
     hide elizabeth happy
@@ -293,14 +317,12 @@ label five:
     e "I'm glad you're here too."
     menu:
         "*Hold her hand*":
-            jump elizabeth_route
+            $ epoints += 1
+            jump four
 
         "*Smile at her*":
             n "(Calling to the group) Where should we go first?"
             jump four
-
-label elizabeth_route:
-    return
 
 label six:
     
@@ -329,9 +351,13 @@ label six:
             e "*laughs* Safie, stop teasing her!"
             hide elizabeth happy
             if vpoints >= 0:
+                show victoria
                 g "But Elizabeth, It's so entertaining when she does that!"
+                hide victoria
             else:
+                show victoria
                 g "Yeah, Safie, Stop it!"
+                hide victoria
             
             menu:
                 "*Keep Pushing*":
@@ -396,28 +422,22 @@ label other_elizabeth_route:
     e "My only experience with dating would have been my marriage to Victoia."
     e "But I didn't actually like her. everything about her is a red flag."
     e "She's so obsessive, and she was a terrible mom to The Creature. And she's just creepy."
-    hide elizabeth blushing
-    #The creature wanders by and overhears
+    
+    
 
-    i "That's true, she just abandoned me in her lab after obsessing over me for years."
-    i "Once she starts something she never stops." 
-
-    show elizabeth blushing
-
-    e "Uh... Thanks for that I guess?"
-
-    "the creature leaves."
-    e "Anyway, I'm sorry if I'm not good at this..."
+    e "I'm sorry if I'm not good at this..."
     n "Stop that, you're doing great."
     e "*inhales* so... do you want to?"
     n "I would love to."
 
-    #ending card
+    "ELIZABETH ENDING"
     
     return
 
 label other_victoria_route:
     n "Hey, Victoria, can I talk to you?"
+
+    show victoria
 
     g "I suppose I can put the very important thoughts I'm thinking on hold."
     g "What is it?"
@@ -436,7 +456,7 @@ label other_victoria_route:
 
     g "you heard me."
 
-    #marriage_ending_card
+    "MARRIAGE ENDING"
 
     return
 
@@ -454,11 +474,11 @@ label other_henrietta_route:
     scene transition
     "She gets the job and lives in Baltimore happily for the rest of her life."
     "You never get to ask her out."
-    #ending card
+    "HENRIETTA ENDING"
     return
 
 label roberta_route:
-    show roberta crying
+    show roberta normal
     f "You're... hugging me."
     n "You were crying!"
     f "I just..."
@@ -466,11 +486,12 @@ label roberta_route:
     f "Do you want to go to that fancy restaurant downtown sometime?"
     f "Just the two of us?"
     n "Absolutely."
+    "ROBERTA ENDING"
     return
 
 label no_route:
     "BREAKING NEWS"
-    #screen shake
+    
     e "What's going on?"
 
     "ALIENS HAVE INVADED EARTH, STAND BY FOR FURTHER INSTRUCTIONS"
@@ -479,26 +500,16 @@ label no_route:
 
     l "Seriously Mary? Aliens?"
 
-    k "What's the problem? If you don't take any interesting choices, I make somethin interesting happen."
+    k "What's the problem? If you don't take any interesting choices, I make something interesting happen."
     k "It's just a good idea."
 
-    #show UFO_ending_card
+    "UFO ENDING"
     return
 
 label creature_death:
-    #creature pops up and grabs safie
-  
-    i "Why would you do that?"
-    n "Do what?"
-    i "You didn't hug Roberta!"
-    n "What?"
-    i "I saw you two talking and she was crying and you should have hugged her."
-    #insert mary shelley
-    k "I TOLD YOU TO MAKE THE RIGHT CHOICE."
-    "*SNAP*"
-    #show corpse
-    #show roberta kneeling, crying
-    show bg creature_death_ending_card
+    k "I WAS GOING TO HAVE THE CREATURE KILL YOU FOR NOT LISTENING,"
+    k "BUT YOU'RE NOT WORTH THE EFFORT."   
+    "BAD ENDING"
     return
 
 label henrietta_ending:
@@ -507,14 +518,15 @@ label henrietta_ending:
     n "And even when Victoria was awful to you you went on that trip with her." 
     n "You love the world and life, and you have a great sense of wonder."
     n "I love you."
-    #show henrietta_ending_card
+    "HENRIETTA ENDING"
     return
 
 label victoria_hate_confession:
+    show victoria
     g "Hey, Safie."
     menu:
         "Yeah?":
-            #animate a slap type thing
+            "*SMACK!*"
             g "I hate you."
             g "You're not a good enough friend to me and you're kinda just mean."
         "*ignore her*":
@@ -523,5 +535,5 @@ label victoria_hate_confession:
             g "'I will be with you on your wedding night.'"
             g "you left that note, didn't you?"
             g "Don't worry, I'll be ready for you."
-            #show victoria_hate_ending_card
+            "VICTORIA HATE ENDING"
     return
