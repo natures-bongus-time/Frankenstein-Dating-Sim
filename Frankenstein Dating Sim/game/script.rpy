@@ -13,6 +13,14 @@ init:
     image elizabeth happy = "elizabeth_happy.png"
 
     image bg school bus = "school-bus.jpg"
+
+    image bg inside = "inside.png" 
+
+    image bg room = "room.png"
+
+    image bg jellyfish = "jellyfish.png"
+
+    image bf coral reef = "coral.png"
     
     image henrietta blushing = "codel1.png"
 
@@ -209,6 +217,8 @@ label two:
 
 
 label three:
+
+    scene bg inside
     "As the group enters the aquarium:"
     show henrietta happy
     h "Wow."
@@ -259,6 +269,8 @@ label victoria_route:
     hide victoria
 
     "*gasp*"
+
+    scene bg room 
 
     "It turns out, this was all a dream. The trip is still in two weeks."
 
@@ -331,9 +343,11 @@ label six:
     h "OHMYGODCOMEHERETHEJELLYFISHARESOCOOL!!!!!"
 
     f "Let's go join the group."
+    
     if rpoints < 0:
         f "We... we can finish our discussion later"
-    
+
+    scene bg jellyfish
 
     #scene change, everyone's there, there's a cool picture of jellyfish.
 
@@ -393,6 +407,7 @@ label seven:
     p "Yeah!"
 
     #scene change to coral reef
+    scene bg coral reef
     if rpoints < 0:
         jump creature_death
     
@@ -495,6 +510,8 @@ label no_route:
     e "What's going on?"
 
     "ALIENS HAVE INVADED EARTH, STAND BY FOR FURTHER INSTRUCTIONS"
+
+    scene bg coral reef
     
     #cut to a different background of like a mansion
 
