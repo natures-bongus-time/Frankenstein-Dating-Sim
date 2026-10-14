@@ -511,7 +511,7 @@ label no_route:
 
     "ALIENS HAVE INVADED EARTH, STAND BY FOR FURTHER INSTRUCTIONS"
 
-    scene bg coral reef
+    scene bg room
     
     #cut to a different background of like a mansion
 
