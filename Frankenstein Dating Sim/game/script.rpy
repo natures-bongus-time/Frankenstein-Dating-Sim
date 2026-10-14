@@ -165,7 +165,7 @@ label two:
 
     g "Fine..."
 
-    hide victoria
+    hide victoria   
 
     show henrietta happy
 
