@@ -20,7 +20,7 @@ init:
 
     image bg jellyfish = "jellyfish.png"
 
-    image bf coral reef = "coral.png"
+    image bg coral = "coral.png"
     
     image henrietta blushing = "codel1.png"
 
@@ -262,7 +262,7 @@ label victoria_route:
 
     hide henrietta happy
 
-    show victoria happy
+    show victoria 
 
     g "*laughs* Henrietta, please calm down before you have a heart attack."
 
@@ -286,7 +286,7 @@ label four:
 
     hide elizabeth happy
 
-    show Henrietta happy
+    show henrietta happy
     
     h "IWANTTOSEEJELLYFISH!!!!!!!"
     p "*Laughs*"
@@ -324,7 +324,8 @@ label roberta_choice:
 
 
 label five: 
-    show elizabeth_blushing
+    hide elizabeth happy
+    show elizabeth blushing
     e "I... thank you."
     e "I'm glad you're here too."
     menu:
@@ -358,6 +359,7 @@ label six:
     menu:
         "It's adorable how excited you are.":
             $ hpoints += 1
+            hide henrietta happy
             show henrietta blushing
             h "adsfsfsdfsdfsdfssfdsfsdfsdfdf"
             hide henrietta blushing
@@ -401,13 +403,14 @@ label henrietta_route:
             jump henrietta_ending
 
 label seven:
+    hide henrietta happy
     show elizabeth happy
     e "Let's go see the coral reef exhibit! It sounds amazing."
     hide elizabeth happy
     p "Yeah!"
 
     #scene change to coral reef
-    scene bg coral reef
+    scene bg coral
     if rpoints < 0:
         jump creature_death
     
